@@ -83,7 +83,8 @@ class ConceptNetwork:
             self,
             X_df: 'pd.DataFrame[bool]', y: 'pd.Series[bool]',
             loss_fn=torch.nn.CrossEntropyLoss(), nonlinearity=torch.nn.ReLU,
-            n_epochs: int = 2000
+            n_epochs: int = 2000,
+            k_folds: int = 10
     ):
         X = torch.tensor(X_df[list(self.attributes)].values).float()
         y = torch.tensor(y.values).long()
